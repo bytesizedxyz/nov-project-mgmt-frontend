@@ -1,0 +1,41 @@
+import React, { Component } from 'react'
+
+// dummy data
+const projects = [
+  {
+    name: "Project One",
+    description: "This one's gonna be a dousy."
+  },
+  {
+    name: "Project Two",
+    description: "Okay... Another one. We can do this.."
+  }
+  {
+    name: "Project Three",
+    description: "Slow down..."
+  }
+]
+
+const initialState = {
+  projects: []
+}
+
+class ProjectList extends Component {
+  state = initialState
+  componentDidMount = async () => {
+    // axios GET request to fetch all projects
+    // that will be displayed
+
+    // update state with projects once the request is fulfilled.
+  }
+  
+  render() {
+    return (
+      <div>
+        <h1>Project List</h1>
+      </div>
+    )
+  }
+}
+
+export default ProjectList;
