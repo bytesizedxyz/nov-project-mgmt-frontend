@@ -9,7 +9,7 @@ const projects = [
   {
     name: "Project Two",
     description: "Okay... Another one. We can do this.."
-  }
+  },
   {
     name: "Project Three",
     description: "Slow down..."
@@ -25,6 +25,7 @@ class ProjectList extends Component {
   componentDidMount = async () => {
     // axios GET request to fetch all projects
     // that will be displayed
+    setTimeout(this.props.updateProjectList(projectList), 5000)
 
     // update state with projects once the request is fulfilled.
   }

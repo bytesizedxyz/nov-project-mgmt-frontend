@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     render(
       <Router>
-        <ProjectListingPage path="/ProjectList" onProjectListReceived={this.updateProjectList} />
+        <ProjectListingPage path="/ProjectList" updateProjectList={this.updateProjectList} />
         <ProjectDetailPage path="ProjectDetail" />
       </Router>
     )
