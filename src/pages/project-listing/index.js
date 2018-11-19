@@ -11,10 +11,11 @@ const Main = styled.main`
   background: periwinkle;
 `
 
-const projectListingPage = ({ updateProjectList }) => {
+const ProjectListingPage = ({ updateProjectList }) => {
   return (
     <main>
       <ProjectList updateProjectList={updateProjectList} />
     </main>
   )
-}
+};
+export default ProjectListingPage;

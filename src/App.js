@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Router, Link } from '@reach/router';
-import logo from './logo.svg';
 import './App.css';
 import ProjectListingPage from './pages/project-listing'
 import ProjectDetailPage from './pages/project-detail'
+
 
 class App extends Component {
   state = {
@@ -11,23 +11,35 @@ class App extends Component {
   }
   
   updateProjectList = (projectList) => {
-    this.setState({project: projectList})
+    const reducedList = projectList.reduce((accum, current, i) =>{
+      accum[i] = current;
+    }, {})
+    this.setState({project: reducedList})
   }
-
+  updateActive = event =>{
+    this.setState({
+      active:event.target.id
+    })
+  };
+  updateStatus = (projectId, todoId) =>{
+    //this is where we'll axios
+    //put to update todo status
+    console.log("todo status should update");
+  };  
+componentDidUpdate = ()=>{
+  console.log(this.state);
+}
   render() {
-    render(
+    const {projectList, active} = this.state;
+    return(
       <Router>
-        <ProjectListingPage path="/ProjectList" updateProjectList={this.updateProjectList} />
-        <ProjectDetailPage path="ProjectDetail" />
+        Hello
+        <ProjectListingPage path="/ProjectList" updateProjectList={this.updateProjectList} updateActive={this.updateActive} />
+        {projectList&&<ProjectDetailPage active={projectList[active]} updateStatus={this.updateStatus} path="ProjectDetail" />}
       </Router>
     )
   }
 }
 
 export default App;
-
-
-import { React } from "react"
-import { render } from "react-dom"
-import { Router, Link } from "@reach/router"
 

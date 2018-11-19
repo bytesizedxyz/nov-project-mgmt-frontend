@@ -11,10 +11,11 @@ const Main = styled.main`
   background: lime;
 `
 
-const projectDetailPage = () => {
+const ProjectDetailPage = () => {
   return (
-    <main>
+    <Main>
       <ProjectDetail />
-    </main>
+    </Main>
   )
-}
+};
+export default ProjectDetailPage;

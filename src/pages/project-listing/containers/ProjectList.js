@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 // dummy data
-const projects = [
+const projectList = [
   {
     name: "Project One",
     description: "This one's gonna be a dousy."
