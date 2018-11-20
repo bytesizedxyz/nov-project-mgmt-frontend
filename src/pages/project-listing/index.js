@@ -13,9 +13,9 @@ const Main = styled.main`
 
 const ProjectListingPage = ({ updateProjectList }) => {
   return (
-    <main>
+    <Main>
       <ProjectList updateProjectList={updateProjectList} />
-    </main>
+    </Main>
   )
 };
 export default ProjectListingPage;

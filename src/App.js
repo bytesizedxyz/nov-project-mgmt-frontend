@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Link } from '@reach/router';
+import { Router } from '@reach/router';
 import './App.css';
 import ProjectListingPage from './pages/project-listing'
 import ProjectDetailPage from './pages/project-detail'
@@ -11,10 +11,13 @@ class App extends Component {
   }
   
   updateProjectList = (projectList) => {
+    console.log("got here")
+    console.log(projectList)
     const reducedList = projectList.reduce((accum, current, i) =>{
       accum[i] = current;
+      return accum;
     }, {})
-    this.setState({project: reducedList})
+    this.setState({projects: reducedList})
   }
   updateActive = event =>{
     this.setState({
@@ -30,12 +33,11 @@ componentDidUpdate = ()=>{
   console.log(this.state);
 }
   render() {
-    const {projectList, active} = this.state;
+    const {projects, active} = this.state;
     return(
       <Router>
-        Hello
-        <ProjectListingPage path="/ProjectList" updateProjectList={this.updateProjectList} updateActive={this.updateActive} />
-        {projectList&&<ProjectDetailPage active={projectList[active]} updateStatus={this.updateStatus} path="ProjectDetail" />}
+        <ProjectListingPage path="/" updateProjectList={this.updateProjectList} updateActive={this.updateActive} />
+        {projects&&<ProjectDetailPage active={projects[active]} updateStatus={this.updateStatus} path="/ProjectDetail" />}
       </Router>
     )
   }

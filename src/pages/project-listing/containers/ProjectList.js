@@ -25,8 +25,8 @@ class ProjectList extends Component {
   componentDidMount = async () => {
     // axios GET request to fetch all projects
     // that will be displayed
-    setTimeout(this.props.updateProjectList(projectList), 5000)
-
+    //setTimeout(this.props.updateProjectList(projectList), 5000)
+    this.props.updateProjectList(projectList);
     // update state with projects once the request is fulfilled.
   }
   
@@ -34,6 +34,9 @@ class ProjectList extends Component {
     return (
       <div>
         <h1>Project List</h1>
+        <ul>
+        {projectList.map(project=><li>{project.name}</li>)}
+        </ul>
       </div>
     )
   }
